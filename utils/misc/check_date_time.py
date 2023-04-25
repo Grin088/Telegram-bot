@@ -1,10 +1,11 @@
 from datetime import datetime, date
 import time
 
+
 class CheckDate:
 
     @classmethod
-    def is_valid_date(cls,date_text: str) -> bool:
+    def is_valid_date(cls, date_text: str) -> bool:
 
         """Функция проверки корректности
         введенной даты

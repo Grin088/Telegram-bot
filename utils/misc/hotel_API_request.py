@@ -162,8 +162,8 @@ class HotelRequest:
             "resultsSize": int(user_data['hotel quantity']),
             "sort": sort_method,
             "filters": {"price": {
-                "max": int(user_data['max price']),
-                "min": int(user_data['min price'])
+                "max": int(user_data['max_price']),
+                "min": int(user_data['min_price'])
             }}
         }
 
@@ -311,7 +311,9 @@ class HotelRequest:
             yield message
             # отправляем фото если пользователь ввел соответсвующую информацию
             if photo:
+                photos = []
+                print(photo)
                 if values.get('photos'):
                     for photo_url in values['photos']:
-                        message = photo_url
-                        yield message
+                        photos.append(photo_url)
+                    yield photos

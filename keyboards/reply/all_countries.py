@@ -1,16 +1,11 @@
-
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
-import os
-import json
+from database.all_countries import AllCountries
 from re import match
 
 
 def all_country_keyboard(message):
 
-    path = os.path.abspath(os.path.join('database', 'all_countries.json'))
-
-    with open(path, 'r') as country_list:
-        data = json.load(country_list)
+    data = AllCountries.get_country_dict()
     # создаем список с названиями стран
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
     # создаем кнопки с именами стран
